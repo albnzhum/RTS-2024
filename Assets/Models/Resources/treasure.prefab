@@ -179,7 +179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1814691557137901092}
   m_Layer: 0
-  m_Name: treasure
+  m_Name: Treasure
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
