@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SaveSystem : MonoBehaviour
+namespace RTS.Save
 {
-    public void SaveGeneralSettings(GeneralSettings settings)
+    public class SaveSystem : MonoBehaviour
     {
-        FileManager.ToJson(settings);
+        public void SaveGeneralSettings(GeneralSettings settings)
+        {
+            FileManager.WriteSettings(settings);
+        }
     }
 }

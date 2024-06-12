@@ -2,23 +2,43 @@ using System;
 using System.IO;
 using UnityEngine;
 
-public static class FileManager
+namespace RTS.Save
 {
-    private static string generalSettingsFileName = "GeneralSettings.json";
-
-    public static void ToJson(GeneralSettings settings)
+    public static class FileManager
     {
-        string filePath = Path.Combine(Application.streamingAssetsPath, generalSettingsFileName);
-        try
+        private static string generalSettingsFileName = "GeneralSettings.json";
+
+        public static void WriteSettings(GeneralSettings settings)
         {
+            string filePath = Path.Combine(Application.streamingAssetsPath, generalSettingsFileName);
+            try
             {
-                string json = JsonUtility.ToJson(settings);
-                File.WriteAllText(filePath, json);
+                {
+                    string json = JsonUtility.ToJson(settings);
+                    File.WriteAllText(filePath, json);
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("Error creating file: " + e.Message);
             }
         }
-        catch (Exception e)
+
+        public static GeneralSettings ReadSettings()
         {
-            Debug.LogError("Error creating levels file: " + e.Message);
+            string filePath = Path.Combine(Application.streamingAssetsPath, generalSettingsFileName);
+
+            if (File.Exists(filePath))
+            {
+                string json = File.ReadAllText(filePath);
+                GeneralSettings settings = JsonUtility.FromJson<GeneralSettings>(json);
+
+                return settings;
+            }
+            else
+            {
+                return new GeneralSettings();
+            }
         }
     }
 }

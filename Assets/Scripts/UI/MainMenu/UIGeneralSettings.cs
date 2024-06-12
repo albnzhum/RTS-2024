@@ -16,6 +16,7 @@ namespace RTS.UI
         
         public UnityAction OnResetSettings;
         public UnityAction<bool, bool, int, float> OnSaveSettings;
+        public UnityAction<bool, bool, int, float> OnReadSettings;
 
         private float _savedAudioVolume;
         private int _savedResolutionIndex;
@@ -28,6 +29,11 @@ namespace RTS.UI
             audioEnabled.onValueChanged.AddListener(SetAudioEnabled);
             resolutions.onValueChanged.AddListener(SetResolutionIndex);
             volume.onValueChanged.AddListener(SetVolumeValue);
+        }
+
+        private void Awake()
+        {
+            OnReadSettings += ReadSettings;
         }
 
         private void SetFullscreenValue(bool isFullscreen)
@@ -59,6 +65,14 @@ namespace RTS.UI
         {
             OnSaveSettings?.Invoke(_savedFullscreen, _savedAudioEnabled, 
                 _savedResolutionIndex, _savedAudioVolume);
+        }
+
+        private void ReadSettings(bool fullscreen, bool audioEnabled, int resolutionIndex, float audioVolume)
+        {
+            this.fullscreen.isOn = fullscreen;
+            this.audioEnabled.isOn = audioEnabled;
+            resolutions.value = resolutionIndex;
+            volume.value = audioVolume;
         }
         
         public void Open()

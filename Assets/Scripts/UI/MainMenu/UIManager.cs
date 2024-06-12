@@ -1,3 +1,4 @@
+using RTS.Events;
 using UnityEditor;
 using UnityEngine;
 
@@ -9,6 +10,9 @@ namespace RTS.UI
         [SerializeField] private UIMenu menu;
         [SerializeField] private UIGeneralSettings generalSettings;
         [SerializeField] private UIGameSettings gameSettings;
+        
+        [SerializeField] private VoidEventChannelSO onSettingsEnabled;
+
 
         private void OnEnable()
         {
@@ -32,6 +36,7 @@ namespace RTS.UI
         private void OpenGeneralSettings()
         {
             generalSettings.Open();
+            onSettingsEnabled.RaiseEvent();
         }
 
         private void QuitGame()

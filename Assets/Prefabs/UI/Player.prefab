@@ -11,13 +11,14 @@ GameObject:
   - component: {fileID: 4597373777022494139}
   - component: {fileID: 120910645144702747}
   - component: {fileID: 273223409937047553}
+  - component: {fileID: 2201755191635308566}
   m_Layer: 5
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4597373777022494139
 RectTransform:
   m_ObjectHideFlags: 0
@@ -77,6 +78,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 0.7
+--- !u!114 &2201755191635308566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613270041119918329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1529f56e88b948b6a710bbf4de52d554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerName: {fileID: 6760376305852538451}
+  buttonColor: {fileID: 5976598553202506102}
+  currentPlayer: {}
 --- !u!1 &622211510921895178
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,6 +621,7 @@ GameObject:
   - component: {fileID: 5370366074636223371}
   - component: {fileID: 4669247744093584173}
   - component: {fileID: 5976598553202506102}
+  - component: {fileID: 4658693058841894692}
   m_Layer: 5
   m_Name: Color
   m_TagString: Untagged
@@ -713,3 +730,32 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4658693058841894692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5669857965312374830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 9
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2201755191635308566}
+          m_TargetAssemblyTypeName: RTS.UI.UIPlayerItem, Assembly-CSharp
+          m_MethodName: SelectItem
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
