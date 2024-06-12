@@ -1,18 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
+using RTS.Events;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private VoidEventChannelSO onGameplaySceneLoad = default;
+
+    private void OnEnable()
     {
-        
+        DontDestroyOnLoad(this);
+
+        onGameplaySceneLoad.OnEventRaised += LoadGameplayScene;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        
+        onGameplaySceneLoad.OnEventRaised -= LoadGameplayScene;
+    }
+
+    private void LoadGameplayScene()
+    {
+        SceneManager.LoadScene("Game");
     }
 }

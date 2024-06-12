@@ -1,17 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class InputReader : MonoBehaviour
+public class InputReader : MonoBehaviour, GameInputs.IGameplayActions, GameInputs.IUIActions
 {
-    // Start is called before the first frame update
-    void Start()
+    public void OnPause(InputAction.CallbackContext context)
     {
         
     }
+    
+    public void OnClick(InputAction.CallbackContext context)
+    {
+        throw new System.NotImplementedException();
+    }
 
-    // Update is called once per frame
-    void Update()
+    public void OnCameraMovement(InputAction.CallbackContext context)
     {
         
     }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using RTS.Events;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -13,6 +14,7 @@ namespace RTS.UI
 
         [SerializeField] private GameSettingsSO _gameSettings = default;
         [SerializeField] private List<UIPlayerItem> availableItemSlots = default;
+        [SerializeField] private VoidEventChannelSO onGameplaySceneLoad = default;
 
         [Header("UI")] 
         [SerializeField] private TMP_Dropdown playersCount;
@@ -46,7 +48,7 @@ namespace RTS.UI
                 availableItemSlots[i].PlayerSelected -= InspectItem;
             }
 
-            _gameSettings.Clear();
+            //_gameSettings.Clear();
         }
 
         #endregion
@@ -56,6 +58,7 @@ namespace RTS.UI
             if (ValidateSettings())
             {
                 SaveSettings();
+                onGameplaySceneLoad.RaiseEvent();
             }
             else
             {
