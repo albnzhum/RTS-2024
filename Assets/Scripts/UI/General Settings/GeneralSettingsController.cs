@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using RTS.Events;
 using RTS.Save;
@@ -18,13 +19,20 @@ namespace RTS.UI
 
         private void OnEnable()
         {
-            _generalSettings = FileManager.ReadSettings();
+            _generalSettings = saveSystem.ReadGeneralSettings();
 
             uiGameSettings.OnSaveSettings += SaveSettings;
 
             onSettingsEnabled.OnEventRaised += SetCurrentSettingsUI;
 
             SetResolutionsList();
+        }
+
+        private void OnDisable()
+        {
+            uiGameSettings.OnSaveSettings -= SaveSettings;
+
+            onSettingsEnabled.OnEventRaised -= SetCurrentSettingsUI;
         }
 
         private void SetCurrentSettingsUI()

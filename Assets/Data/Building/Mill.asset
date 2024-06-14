@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e4af3249a5748eaa46c02d8060ab59c, type: 3}
+  m_Name: Mill
+  m_EditorClassIdentifier: 
+  name: "\u041C\u0435\u043B\u044C\u043D\u0438\u0446\u0430"
+  prefab: {fileID: 3931184038110116919, guid: 5acbb84af993e2b4f9fd2a8aecdd13e3, type: 3}
+  buildingType: {fileID: 11400000, guid: 18dbf49d7b3db354ea0ac60ae6bc4f12, type: 2}
+  strength: 15
+  resourceCosts:
+  - resourceType: 0
+    amount: 10
+  resourcesToProduce:
+  - {fileID: 11400000, guid: c19a68a170a1d114a8486e414d7d009d, type: 2}

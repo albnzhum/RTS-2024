@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80457e3b93ec4b04821d5c7bd0a832c3, type: 3}
+  m_Name: Builder
+  m_EditorClassIdentifier: 
+  name: "\u0421\u0442\u0440\u043E\u0438\u0442\u0435\u043B\u044C"
+  prefab: {fileID: 5209728340417000431, guid: e2d361d46eb2a474da958c76590175b6, type: 3}
+  unitType: {fileID: 11400000, guid: dca43f86aba09a746b692792d0b712c1, type: 2}
+  movementSpeed: 5
+  health: 20
+  resourceCost:
+  - resourceType: 0
+    amount: 15
+  detectionRange: 0
+  resourceGatheringSpeed: 0
+  repairSpeed: 0
+  repairEfficiency: 0

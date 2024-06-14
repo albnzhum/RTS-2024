@@ -6,39 +6,43 @@ namespace RTS.Save
 {
     public static class FileManager
     {
-        private static string generalSettingsFileName = "GeneralSettings.json";
-
-        public static void WriteSettings(GeneralSettings settings)
+        public static void Write<T>(string fileName, T obj)
         {
-            string filePath = Path.Combine(Application.streamingAssetsPath, generalSettingsFileName);
+            string filePath = Path.Combine(Application.streamingAssetsPath, fileName);
+
             try
             {
+                string json = JsonUtility.ToJson(obj);
+
+                File.WriteAllText(filePath, json);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("Error creating file " + e.Message);
+            }
+        }
+
+        public static T Read<T>(string filename)
+        {
+            string filePath = Path.Combine(Application.streamingAssetsPath, filename);
+
+            try
+            {
+                if (File.Exists(filePath))
                 {
-                    string json = JsonUtility.ToJson(settings);
-                    File.WriteAllText(filePath, json);
+                    string json = File.ReadAllText(filePath);
+
+                    T obj = JsonUtility.FromJson<T>(json);
+
+                    return obj;
                 }
             }
             catch (Exception e)
             {
-                Debug.LogError("Error creating file: " + e.Message);
+                Debug.LogError("Error reading file " + e.Message);
             }
-        }
 
-        public static GeneralSettings ReadSettings()
-        {
-            string filePath = Path.Combine(Application.streamingAssetsPath, generalSettingsFileName);
-
-            if (File.Exists(filePath))
-            {
-                string json = File.ReadAllText(filePath);
-                GeneralSettings settings = JsonUtility.FromJson<GeneralSettings>(json);
-
-                return settings;
-            }
-            else
-            {
-                return new GeneralSettings();
-            }
+            return default;
         }
     }
 }

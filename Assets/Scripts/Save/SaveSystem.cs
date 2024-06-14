@@ -8,7 +8,12 @@ namespace RTS.Save
     {
         public void SaveGeneralSettings(GeneralSettings settings)
         {
-            FileManager.WriteSettings(settings);
+            FileManager.Write(JsonFileName.GeneralSettingsFile,settings);
+        }
+
+        public GeneralSettings ReadGeneralSettings()
+        {
+            return FileManager.Read<GeneralSettings>(JsonFileName.GeneralSettingsFile);
         }
     }
 }

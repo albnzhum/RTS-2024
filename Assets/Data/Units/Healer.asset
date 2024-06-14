@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b967bca711c486ca7f82363fa0db00d, type: 3}
+  m_Name: Healer
+  m_EditorClassIdentifier: 
+  name: "\u041B\u0435\u043A\u0430\u0440\u044C"
+  prefab: {fileID: 7255528331568808303, guid: 552536f76a56b3c4ea60118cd07d7f86, type: 3}
+  unitType: {fileID: 11400000, guid: 1144d585b180c994e9b7b4f74ec4b1fb, type: 2}
+  movementSpeed: 5
+  health: 18
+  resourceCost:
+  - resourceType: 2
+    amount: 20
+  detectionRange: 0
+  minHealDistance: 0
+  maxHealDistance: 0
+  healDelay: 0
+  heal: 0

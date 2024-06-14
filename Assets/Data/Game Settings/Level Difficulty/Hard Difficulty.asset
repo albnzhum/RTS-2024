@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be12eda25067b764e8a2b5c9ba61d355, type: 3}
+  m_Name: Hard Difficulty
+  m_EditorClassIdentifier: 
+  difficulty: 2
+  enemiesSpawnTime: 5
+  enemiesUnitToSpawn:
+  - {fileID: 11400000, guid: e5cdba4dcd3b13a4aaa62fec05c0ca43, type: 2}
+  - {fileID: 11400000, guid: f135d7573251d9e4dab85760c5ba39dc, type: 2}
+  - {fileID: 11400000, guid: c3f371e33641b30469aa46783bb74a3b, type: 2}
+  startArmyLimit: 10
+  armyIncreaseValue: 5

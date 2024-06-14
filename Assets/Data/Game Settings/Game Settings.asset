@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d5dd6d58d694856926a7eab74442a1c, type: 3}
   m_Name: Game Settings
   m_EditorClassIdentifier: 
-  _enemiesCount: 0
-  _difficulty: 0
+  _enemiesCount: -1
   _playersList: []
-  _mapSize: 0
+  _mapSize: -1
+  _levelDifficulty:
+  - {fileID: 11400000, guid: b75a06fa512b54946836f62b6f22b51e, type: 2}
+  - {fileID: 11400000, guid: 67e24f96b65913e44a4196290d623125, type: 2}
+  - {fileID: 11400000, guid: b5e8fe2a11bf0644cb48e0456d56d885, type: 2}

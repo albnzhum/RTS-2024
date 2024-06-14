@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b79c67b549644d3eb1e822834a07972c, type: 3}
+  m_Name: Barracks
+  m_EditorClassIdentifier: 
+  name: "\u041A\u0430\u0437\u0430\u0440\u043C\u044B"
+  prefab: {fileID: 1131050632274006739, guid: 866e610fc65621b4aa0bcccd07ee493f, type: 3}
+  buildingType: {fileID: 11400000, guid: ed9c06389c1c72941b899c3d01386d33, type: 2}
+  strength: 15
+  resourceCosts:
+  - resourceType: 0
+    amount: 10
+  - resourceType: 1
+    amount: 5
+  unitsToTrain:
+  - {fileID: 11400000, guid: e5cdba4dcd3b13a4aaa62fec05c0ca43, type: 2}
+  - {fileID: 11400000, guid: 7e79e1c0d0761ef4bbd6adda44d93541, type: 2}
+  - {fileID: 11400000, guid: f135d7573251d9e4dab85760c5ba39dc, type: 2}

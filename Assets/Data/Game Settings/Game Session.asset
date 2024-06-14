@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 353dd9da3fc4f534f936378001c9beee, type: 3}
+  m_Name: Game Session
+  m_EditorClassIdentifier: 
+  levelModifiers:
+  - {fileID: 11400000, guid: b75a06fa512b54946836f62b6f22b51e, type: 2}
+  - {fileID: 11400000, guid: 67e24f96b65913e44a4196290d623125, type: 2}
+  - {fileID: 11400000, guid: b5e8fe2a11bf0644cb48e0456d56d885, type: 2}
+  buildingRadius: 0
