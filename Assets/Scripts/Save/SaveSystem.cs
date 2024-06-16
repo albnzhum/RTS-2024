@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace RTS.Save
@@ -8,12 +6,22 @@ namespace RTS.Save
     {
         public void SaveGeneralSettings(GeneralSettings settings)
         {
-            FileManager.Write(JsonFileName.GeneralSettingsFile,settings);
+            FileManager.SerializeToJson(JsonFileName.GeneralSettingsFile, settings);
         }
 
         public GeneralSettings ReadGeneralSettings()
         {
-            return FileManager.Read<GeneralSettings>(JsonFileName.GeneralSettingsFile);
+            return FileManager.DeserializeFromJson<GeneralSettings>(JsonFileName.GeneralSettingsFile);
+        }
+
+        public void SaveGameData(GameData gameData)
+        {
+            FileManager.Serialize(gameData, JsonFileName.GameDataFile);
+        }
+
+        public GameData LoadGameData()
+        {
+            return FileManager.Deserialize<GameData>(JsonFileName.GameDataFile);
         }
     }
 }

@@ -47,8 +47,6 @@ namespace RTS.UI
             {
                 availableItemSlots[i].PlayerSelected -= InspectItem;
             }
-
-            //_gameSettings.Clear();
         }
 
         #endregion
@@ -75,7 +73,7 @@ namespace RTS.UI
 
             var mapSizeValue = int.TryParse(mapSizeInputField.text, out int mapSize);
             
-            _gameSettings.SetGameSettings(playersCountValue, difficultyOptionValue, mapSize);
+            _gameSettings.SetGameSettings(playersCountValue, difficultyOptionValue, Convert.ToInt32(Mathf.Sqrt(mapSize)));
         }
 
         private void InitializePlayers()

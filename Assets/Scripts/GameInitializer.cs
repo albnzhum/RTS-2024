@@ -1,4 +1,3 @@
-using System;
 using RTS.UI;
 using UnityEngine;
 
@@ -8,8 +7,7 @@ namespace RTS.Resources
     {
         [SerializeField] private GameSettingsSO _gameSettings;
 
-        [Header("Game")] 
-        [SerializeField] private Terrain _terrain;
+        [Header("Game")] [SerializeField] private Terrain _terrain;
 
         private void OnEnable()
         {
@@ -23,11 +21,7 @@ namespace RTS.Resources
 
         private void SetMapArea()
         {
-            var width = Mathf.Sqrt(_gameSettings.MapSize);
-            
-            _terrain.terrainData.size = new Vector3(width, 10, width);
+            _terrain.terrainData.size = new Vector3(_gameSettings.MapSize * 2, 10, _gameSettings.MapSize * 2);
         }
-        
-        
     }
 }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u041C\u0435\u043B\u044C\u043D\u0438\u0446\u0430"
   prefab: {fileID: 3931184038110116919, guid: 5acbb84af993e2b4f9fd2a8aecdd13e3, type: 3}
-  buildingType: {fileID: 11400000, guid: 18dbf49d7b3db354ea0ac60ae6bc4f12, type: 2}
+  buildingType: 5
   strength: 15
   resourceCosts:
   - resourceType: 0

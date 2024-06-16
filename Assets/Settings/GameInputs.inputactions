@@ -7,12 +7,12 @@
             "actions": [
                 {
                     "name": "Camera Movement",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "a8e85599-410c-445c-b449-c428149a6341",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Pause",
@@ -22,6 +22,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Zoom Camera",
+                    "type": "Value",
+                    "id": "4f1e6117-782e-4f95-ad5b-07cea920fd88",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -88,6 +97,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fb03e979-aea3-4ee3-b653-3ff74482e43d",
+                    "path": "<Mouse>/scroll",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Zoom Camera",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

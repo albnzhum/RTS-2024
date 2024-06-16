@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u041E\u0441\u0430\u0434\u043D\u0430\u044F \u0431\u0430\u0448\u043D\u044F"
   prefab: {fileID: 5056541987184030655, guid: 9b52a29bbc523274ca667c87ac75f13f, type: 3}
-  unitType: {fileID: 11400000, guid: 0c0f7d830342dfe458818a39e8b653dd, type: 2}
+  unitType: 6
   movementSpeed: 5
   health: 20
   resourceCost:

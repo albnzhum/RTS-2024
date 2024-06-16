@@ -1,5 +1,3 @@
-using System;
-using RTS.Events;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;

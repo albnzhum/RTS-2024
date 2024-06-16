@@ -64,9 +64,7 @@ namespace RTS.UI
             uiGameSettings.resolutions.ClearOptions();
 
             List<string> options = new List<string>();
-
-            int currentResolutionIndex = 0;
-
+            
             foreach (Resolution res in Screen.resolutions)
             {
                 _resolutions.Add(res);

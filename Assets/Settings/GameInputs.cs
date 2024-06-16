@@ -29,12 +29,12 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Camera Movement"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Value"",
                     ""id"": ""a8e85599-410c-445c-b449-c428149a6341"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Pause"",
@@ -44,6 +44,15 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Zoom Camera"",
+                    ""type"": ""Value"",
+                    ""id"": ""4f1e6117-782e-4f95-ad5b-07cea920fd88"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -112,6 +121,17 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fb03e979-aea3-4ee3-b653-3ff74482e43d"",
+                    ""path"": ""<Mouse>/scroll"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Zoom Camera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -170,6 +190,7 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_CameraMovement = m_Gameplay.FindAction("Camera Movement", throwIfNotFound: true);
         m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
+        m_Gameplay_ZoomCamera = m_Gameplay.FindAction("Zoom Camera", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Click = m_UI.FindAction("Click", throwIfNotFound: true);
@@ -237,12 +258,14 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
     private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
     private readonly InputAction m_Gameplay_CameraMovement;
     private readonly InputAction m_Gameplay_Pause;
+    private readonly InputAction m_Gameplay_ZoomCamera;
     public struct GameplayActions
     {
         private @GameInputs m_Wrapper;
         public GameplayActions(@GameInputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @CameraMovement => m_Wrapper.m_Gameplay_CameraMovement;
         public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
+        public InputAction @ZoomCamera => m_Wrapper.m_Gameplay_ZoomCamera;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -258,6 +281,9 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
             @Pause.started += instance.OnPause;
             @Pause.performed += instance.OnPause;
             @Pause.canceled += instance.OnPause;
+            @ZoomCamera.started += instance.OnZoomCamera;
+            @ZoomCamera.performed += instance.OnZoomCamera;
+            @ZoomCamera.canceled += instance.OnZoomCamera;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -268,6 +294,9 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
             @Pause.started -= instance.OnPause;
             @Pause.performed -= instance.OnPause;
             @Pause.canceled -= instance.OnPause;
+            @ZoomCamera.started -= instance.OnZoomCamera;
+            @ZoomCamera.performed -= instance.OnZoomCamera;
+            @ZoomCamera.canceled -= instance.OnZoomCamera;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -343,6 +372,7 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
     {
         void OnCameraMovement(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnZoomCamera(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
