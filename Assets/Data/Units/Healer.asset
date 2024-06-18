@@ -12,16 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b967bca711c486ca7f82363fa0db00d, type: 3}
   m_Name: Healer
   m_EditorClassIdentifier: 
-  name: "\u041B\u0435\u043A\u0430\u0440\u044C"
-  prefab: {fileID: 7255528331568808303, guid: 552536f76a56b3c4ea60118cd07d7f86, type: 3}
-  unitType: 5
-  movementSpeed: 5
-  health: 18
-  resourceCost:
-  - resourceType: 2
-    amount: 20
-  detectionRange: 0
-  minHealDistance: 0
-  maxHealDistance: 0
-  healDelay: 0
-  heal: 0
+  healer:
+    Name: "\u041B\u0435\u043A\u0430\u0440\u044C"
+    PrefabName: Healer
+    UnitType: 5
+    MovementSpeed: 5
+    Health: 18
+    ResourceCost:
+    - resourceType: 1
+      amount: 20
+    - resourceType: 0
+      amount: 10
+    DetectionRange: 4
+    MinHealDistance: 2
+    MaxHealDistance: 5
+    HealDelay: 0.6
+    Heal: 3

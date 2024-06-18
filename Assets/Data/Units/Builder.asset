@@ -12,15 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80457e3b93ec4b04821d5c7bd0a832c3, type: 3}
   m_Name: Builder
   m_EditorClassIdentifier: 
-  name: "\u0421\u0442\u0440\u043E\u0438\u0442\u0435\u043B\u044C"
-  prefab: {fileID: 5209728340417000431, guid: e2d361d46eb2a474da958c76590175b6, type: 3}
-  unitType: 4
-  movementSpeed: 5
-  health: 20
-  resourceCost:
-  - resourceType: 0
-    amount: 15
-  detectionRange: 0
-  resourceGatheringSpeed: 0
-  repairSpeed: 0
-  repairEfficiency: 0
+  builder:
+    Name: "\u0421\u0442\u0440\u043E\u0438\u0442\u0435\u043B\u044C"
+    PrefabName: Builder
+    UnitType: 4
+    MovementSpeed: 5
+    Health: 15
+    ResourceCost:
+    - resourceType: 0
+      amount: 3
+    - resourceType: 2
+      amount: 2
+    DetectionRange: 2
+    ResourceGatheringSpeed: 1
+    RepairSpeed: 3
+    RepairEfficiency: 4

@@ -14,9 +14,18 @@ namespace RTS.Save
             return FileManager.DeserializeFromJson<GeneralSettings>(JsonFileName.GeneralSettingsFile);
         }
 
-        public void SaveGameData(GameData gameData)
+        public GameData SaveGameData(GameData gameData, bool rewrite = false)
         {
-            FileManager.Serialize(gameData, JsonFileName.GameDataFile);
+            if (FileManager.IsFileEmpty<GameData>(JsonFileName.GameDataFile) || rewrite)
+            {
+                FileManager.Serialize(gameData, JsonFileName.GameDataFile);
+                return null;
+            }
+            else
+            {
+                var units = FileManager.Deserialize<GameData>(JsonFileName.GameDataFile);
+                return units;
+            }
         }
 
         public GameData LoadGameData()

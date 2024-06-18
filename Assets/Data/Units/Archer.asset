@@ -12,16 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da495ad647418844d98f3791106855a7, type: 3}
   m_Name: Archer
   m_EditorClassIdentifier: 
-  name: "\u041B\u0443\u0447\u043D\u0438\u043A"
-  prefab: {fileID: 1861785189790964152, guid: 822451c3cfcd85c418c521a0c60f16ac, type: 3}
-  unitType: {fileID: 11400000, guid: e5cdba4dcd3b13a4aaa62fec05c0ca43, type: 2}
-  movementSpeed: 5
-  health: 20
-  resourceCost:
-  - resourceType: 1
-    amount: 10
-  detectionRange: 0
-  minAttackDistance: 0
-  maxAttackDistance: 0
-  attackDelay: 0
-  damage: 0
+  attackUnit:
+    Name: "\u041B\u0443\u0447\u043D\u0438\u043A"
+    PrefabName: Archer
+    UnitType: 0
+    MovementSpeed: 3
+    Health: 10
+    ResourceCost:
+    - resourceType: 0
+      amount: 2
+    - resourceType: 5
+      amount: 5
+    DetectionRange: 5
+    MinAttackDistance: 2
+    MaxAttackDistance: 4
+    AttackDelay: 0.4
+    Damage: 2

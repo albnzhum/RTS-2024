@@ -182,6 +182,74 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Selection"",
+            ""id"": ""8b144f93-6d53-4889-9e10-67645d608bf1"",
+            ""actions"": [
+                {
+                    ""name"": ""Selection"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""45f3b020-da82-45f0-89ff-e109e067e61b"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectionBoxMouseDown"",
+                    ""type"": ""Button"",
+                    ""id"": ""68859bff-75f9-4545-95ea-3b7196f4de20"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectionBoxMouseUp"",
+                    ""type"": ""Button"",
+                    ""id"": ""8a8df128-ee7e-452c-944c-6c79adf7af20"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""bb9f61b9-0a0f-4714-99f6-37146c153af0"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Selection"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a026b9d7-7170-4bc1-a1c5-05c3206e4ee4"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectionBoxMouseDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""156dd4d2-8b7e-4b86-9444-474f25fc2bf8"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectionBoxMouseUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -195,6 +263,11 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Click = m_UI.FindAction("Click", throwIfNotFound: true);
         m_UI_ClosePause = m_UI.FindAction("Close Pause", throwIfNotFound: true);
+        // Selection
+        m_Selection = asset.FindActionMap("Selection", throwIfNotFound: true);
+        m_Selection_Selection = m_Selection.FindAction("Selection", throwIfNotFound: true);
+        m_Selection_SelectionBoxMouseDown = m_Selection.FindAction("SelectionBoxMouseDown", throwIfNotFound: true);
+        m_Selection_SelectionBoxMouseUp = m_Selection.FindAction("SelectionBoxMouseUp", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -368,6 +441,68 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
         }
     }
     public UIActions @UI => new UIActions(this);
+
+    // Selection
+    private readonly InputActionMap m_Selection;
+    private List<ISelectionActions> m_SelectionActionsCallbackInterfaces = new List<ISelectionActions>();
+    private readonly InputAction m_Selection_Selection;
+    private readonly InputAction m_Selection_SelectionBoxMouseDown;
+    private readonly InputAction m_Selection_SelectionBoxMouseUp;
+    public struct SelectionActions
+    {
+        private @GameInputs m_Wrapper;
+        public SelectionActions(@GameInputs wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Selection => m_Wrapper.m_Selection_Selection;
+        public InputAction @SelectionBoxMouseDown => m_Wrapper.m_Selection_SelectionBoxMouseDown;
+        public InputAction @SelectionBoxMouseUp => m_Wrapper.m_Selection_SelectionBoxMouseUp;
+        public InputActionMap Get() { return m_Wrapper.m_Selection; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(SelectionActions set) { return set.Get(); }
+        public void AddCallbacks(ISelectionActions instance)
+        {
+            if (instance == null || m_Wrapper.m_SelectionActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_SelectionActionsCallbackInterfaces.Add(instance);
+            @Selection.started += instance.OnSelection;
+            @Selection.performed += instance.OnSelection;
+            @Selection.canceled += instance.OnSelection;
+            @SelectionBoxMouseDown.started += instance.OnSelectionBoxMouseDown;
+            @SelectionBoxMouseDown.performed += instance.OnSelectionBoxMouseDown;
+            @SelectionBoxMouseDown.canceled += instance.OnSelectionBoxMouseDown;
+            @SelectionBoxMouseUp.started += instance.OnSelectionBoxMouseUp;
+            @SelectionBoxMouseUp.performed += instance.OnSelectionBoxMouseUp;
+            @SelectionBoxMouseUp.canceled += instance.OnSelectionBoxMouseUp;
+        }
+
+        private void UnregisterCallbacks(ISelectionActions instance)
+        {
+            @Selection.started -= instance.OnSelection;
+            @Selection.performed -= instance.OnSelection;
+            @Selection.canceled -= instance.OnSelection;
+            @SelectionBoxMouseDown.started -= instance.OnSelectionBoxMouseDown;
+            @SelectionBoxMouseDown.performed -= instance.OnSelectionBoxMouseDown;
+            @SelectionBoxMouseDown.canceled -= instance.OnSelectionBoxMouseDown;
+            @SelectionBoxMouseUp.started -= instance.OnSelectionBoxMouseUp;
+            @SelectionBoxMouseUp.performed -= instance.OnSelectionBoxMouseUp;
+            @SelectionBoxMouseUp.canceled -= instance.OnSelectionBoxMouseUp;
+        }
+
+        public void RemoveCallbacks(ISelectionActions instance)
+        {
+            if (m_Wrapper.m_SelectionActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(ISelectionActions instance)
+        {
+            foreach (var item in m_Wrapper.m_SelectionActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_SelectionActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public SelectionActions @Selection => new SelectionActions(this);
     public interface IGameplayActions
     {
         void OnCameraMovement(InputAction.CallbackContext context);
@@ -378,5 +513,11 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
     {
         void OnClick(InputAction.CallbackContext context);
         void OnClosePause(InputAction.CallbackContext context);
+    }
+    public interface ISelectionActions
+    {
+        void OnSelection(InputAction.CallbackContext context);
+        void OnSelectionBoxMouseDown(InputAction.CallbackContext context);
+        void OnSelectionBoxMouseUp(InputAction.CallbackContext context);
     }
 }

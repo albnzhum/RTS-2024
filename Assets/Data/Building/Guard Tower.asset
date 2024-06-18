@@ -12,19 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d527d4ae4fb4ee0838f58363be46986, type: 3}
   m_Name: Guard Tower
   m_EditorClassIdentifier: 
-  name: "\u0421\u0442\u043E\u0440\u043E\u0436\u0435\u0432\u0430\u044F \u0431\u0430\u0448\u043D\u044F"
-  prefab: {fileID: 1131050632274006739, guid: 46453a7b22d0be54f943ea54a01dcab3, type: 3}
-  buildingType: 6
-  strength: 15
-  resourceCosts:
-  - resourceType: 0
-    amount: 10
-  - resourceType: 1
-    amount: 5
-  enemyDetectionRadius: 10
-  buildingRadius: 15
-  archerCapacity: 5
-  minAttackDistance: 0
-  maxAttackDistance: 8
-  attackDelay: 2
-  damage: 5
+  guardTower:
+    Name: "\u0421\u0442\u043E\u0440\u043E\u0436\u0435\u0432\u0430\u044F \u0431\u0430\u0448\u043D\u044F"
+    Prefab: Guard Tower
+    BuildingType: 6
+    Strength: 100
+    ResourceCosts:
+    - resourceType: 0
+      amount: 10
+    - resourceType: 5
+      amount: 15
+    EnemyDetectionRadius: 5
+    BuildingRadius: 3
+    ArcherCapacity: 5
+    MinAttackDistance: 0
+    MaxAttackDistance: 8
+    AttackDelay: 2
+    Damage: 5

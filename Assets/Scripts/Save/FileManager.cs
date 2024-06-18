@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Runtime.Serialization.Json;
+using RTS.Buildings;
 using RTS.Units;
 using UnityEngine;
 
@@ -8,7 +9,12 @@ namespace RTS.Save
 {
     public static class FileManager
     {
-        static Type[] knownTypes = new Type[] { typeof(AttackUnit), typeof(Builder), typeof(Healer), typeof(Turret) };
+        static Type[] knownTypes = new Type[]
+        {
+            typeof(AttackUnit), typeof(Unit), typeof(Builder), typeof(Healer), typeof(Turret),
+            typeof(Building), typeof(TrainBuilding), typeof(ProduceBuilding), typeof(GuardTower),
+            typeof(TownCenter), typeof(Storage)
+        };
         
         public static void Serialize<T>(T obj, string fileName)
         {
@@ -47,23 +53,31 @@ namespace RTS.Save
 
             try
             {
-                string text = File.ReadAllText(filePath);
-
-                T obj = JsonUtility.FromJson<T>(text);
-
-                if (obj == null)
+                if (!File.Exists(filePath))
                 {
                     return true;
                 }
 
-                return false;
+                string text = File.ReadAllText(filePath);
+
+                if (string.IsNullOrEmpty(text))
+                {
+                    return true;
+                }
+
+                using (MemoryStream stream = new MemoryStream(System.Text.Encoding.UTF8.GetBytes(text)))
+                {
+                    DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(T), knownTypes);
+                    T obj = (T)serializer.ReadObject(stream);
+
+                    return obj == null;
+                }
             }
             catch (Exception e)
             {
                 Debug.LogError("Couldn't read file: " + e.Message);
+                return true;
             }
-
-            return true;
         }
 
         public static void SerializeToJson<T>(string fileName, T obj)

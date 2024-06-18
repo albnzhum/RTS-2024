@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 100000, guid: 7c77c455beaeee649bd54f8df5f3af77, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 7c77c455beaeee649bd54f8df5f3af77, type: 3}
       propertyPath: m_Name
       value: Rock
@@ -15,6 +19,10 @@ PrefabInstance:
     - target: {fileID: 100002, guid: 7c77c455beaeee649bd54f8df5f3af77, type: 3}
       propertyPath: m_TagString
       value: Resource
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 7c77c455beaeee649bd54f8df5f3af77, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 7c77c455beaeee649bd54f8df5f3af77, type: 3}
       propertyPath: m_LocalPosition.x
@@ -63,6 +71,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100002, guid: 7c77c455beaeee649bd54f8df5f3af77, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7282705310912239425}
+    - targetCorrespondingSourceObject: {fileID: 100002, guid: 7c77c455beaeee649bd54f8df5f3af77, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3401076613194934951}
   m_SourcePrefab: {fileID: 100100000, guid: 7c77c455beaeee649bd54f8df5f3af77, type: 3}
 --- !u!1 &4412417125401228052 stripped
 GameObject:
@@ -90,3 +101,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.11, y: 1, z: 1}
   m_Center: {x: -0.69, y: 0.33, z: -0.48}
+--- !u!114 &3401076613194934951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4412417125401228052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46585986059e4b14ba841ffc56db6d73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceIcon: {fileID: 6462283819531016195, guid: 516a09d8da129644da2f208ae0aba12e, type: 3}

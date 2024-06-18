@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38db14f76cda42cc9fef0681a7b35ff4, type: 3}
   m_Name: City Hall
   m_EditorClassIdentifier: 
-  name: "\u0420\u0430\u0442\u0443\u0448\u0430"
-  prefab: {fileID: 3931184038110116919, guid: 6761c410843c8c047bdf217375134437, type: 3}
-  buildingType: 8
-  strength: 25
-  resourceCosts:
-  - resourceType: 0
-    amount: 10
-  raduis: 25
+  townCenter:
+    Name: "\u0420\u0430\u0442\u0443\u0448\u0430"
+    Prefab: Town Center
+    BuildingType: 8
+    Strength: 100
+    ResourceCosts:
+    - resourceType: 0
+      amount: 15
+    - resourceType: 5
+      amount: 20
+    Radius: 20

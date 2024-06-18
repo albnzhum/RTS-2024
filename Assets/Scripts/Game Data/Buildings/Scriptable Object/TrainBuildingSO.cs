@@ -1,24 +1,35 @@
-﻿using System.Collections.Generic;
-using RTS.Units;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace RTS.Buildings
 {
     [CreateAssetMenu(menuName = "RTS/Building/Train Building", fileName = "New Train Building")]
     public class TrainBuildingSO : BuildingSO
     {
-        [SerializeField] private List<UnitTypeSO> unitsToTrain;
+        [SerializeField] private TrainBuilding trainBuilding;
 
-        public List<UnitTypeSO> UnitsToTrain => unitsToTrain;
+        public TrainBuilding TrainBuilding => trainBuilding;
 
         public override void Set<T>(T building)
         {
-            base.Set(building);
-
-            if (building is TrainBuildingSO train)
+            if (building is TrainBuilding train && building.BuildingType.ToString() == name)
             {
-                unitsToTrain = train.UnitsToTrain;
+                trainBuilding = train;
             }
+        }
+
+        public override Building ToBuilding<T>()
+        {
+            return trainBuilding;
+        }
+
+        public override GameObject GetBuildingPrefab<T>(T building)
+        {
+            if (building is TrainBuilding buildingToSet)
+            {
+                return base.GetBuildingPrefab(building);
+            }
+
+            return null;
         }
     }
 }

@@ -5,36 +5,31 @@ namespace RTS.Buildings
     [CreateAssetMenu(menuName = "RTS/Building/Guard Tower", fileName = "New Guard Tower")]
     public class GuardTowerSO : BuildingSO
     {
-        [SerializeField] private float enemyDetectionRadius;
-        [SerializeField] private float buildingRadius;
-        [SerializeField] private int archerCapacity = 10;
-        [SerializeField] private float minAttackDistance;
-        [SerializeField] private float maxAttackDistance;
-        [SerializeField] private float attackDelay;
-        [SerializeField] private int damage;
+        [SerializeField] private GuardTower guardTower;
 
-        public float EnemyDetectionRadius => enemyDetectionRadius;
-        public float BuildingRadius => buildingRadius;
-        public int ArcherCapacity => archerCapacity;
-        public float MinAttackDistance => minAttackDistance;
-        public float MaxAttackDistance => maxAttackDistance;
-        public float AttackDelay => attackDelay;
-        public int Damage => damage;
+        public GuardTower GuardTower => guardTower;
 
         public override void Set<T>(T building)
         {
-            base.Set(building);
-
-            if (building is GuardTowerSO guardTower)
+            if (building is GuardTower guardTower)
             {
-                enemyDetectionRadius = guardTower.EnemyDetectionRadius;
-                buildingRadius = guardTower.BuildingRadius;
-                archerCapacity = guardTower.ArcherCapacity;
-                minAttackDistance = guardTower.MinAttackDistance;
-                maxAttackDistance = guardTower.MaxAttackDistance;
-                attackDelay = guardTower.AttackDelay;
-                damage = guardTower.Damage;
+                this.guardTower = guardTower;
             }
+        }
+
+        public override Building ToBuilding<T>()
+        {
+            return guardTower;
+        }
+
+        public override GameObject GetBuildingPrefab<T>(T building)
+        {
+            if (building is GuardTower buildingToSet)
+            {
+                return base.GetBuildingPrefab(buildingToSet);
+            }
+
+            return null;
         }
     }
 }

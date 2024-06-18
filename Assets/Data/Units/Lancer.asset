@@ -12,18 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da495ad647418844d98f3791106855a7, type: 3}
   m_Name: Lancer
   m_EditorClassIdentifier: 
-  name: "\u041A\u043E\u043F\u0435\u0439\u0449\u0438\u043A"
-  prefab: {fileID: 2073963556692576435, guid: e23586c9fef24e5488543e19132af616, type: 3}
-  unitType: 1
-  movementSpeed: 5
-  health: 20
-  resourceCost:
-  - resourceType: 1
-    amount: 15
-  - resourceType: 2
-    amount: 10
-  detectionRange: 0
-  minAttackDistance: 0
-  maxAttackDistance: 0
-  attackDelay: 0
-  damage: 0
+  attackUnit:
+    Name: "\u041A\u043E\u043F\u0435\u0439\u0449\u0438\u043A"
+    PrefabName: Lancer
+    UnitType: 1
+    MovementSpeed: 3
+    Health: 15
+    ResourceCost:
+    - resourceType: 1
+      amount: 10
+    - resourceType: 0
+      amount: 15
+    DetectionRange: 0
+    MinAttackDistance: 0
+    MaxAttackDistance: 0
+    AttackDelay: 0
+    Damage: 0

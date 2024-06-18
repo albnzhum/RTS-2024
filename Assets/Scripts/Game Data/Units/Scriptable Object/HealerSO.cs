@@ -5,32 +5,31 @@ namespace RTS.Units
     [CreateAssetMenu(menuName = "RTS/Units/Healer", fileName = "New Healer")]
     public class HealerSO : UnitSO
     {
-        [SerializeField] private float minHealDistance = default;
-        [SerializeField] private float maxHealDistance = default;
-        [SerializeField] private float healDelay = default;
-        [SerializeField] private int heal = default;
+        [SerializeField] private Healer healer;
 
-        public float MinHealDistance => minHealDistance;
-        public float MaxHealDistance => maxHealDistance;
-        public float HealDelay => healDelay;
-        public int Heal => heal;
+        public Healer Healer => healer;
 
         public override void Set<T>(T unit)
         {
-            base.Set(unit);
-
             if (unit is Healer healer)
             {
-                minHealDistance = healer.MinHealDistance;
-                maxHealDistance = healer.MaxHealDistance;
-                healDelay = healer.HealDelay;
-                heal = healer.Heal;
+                this.healer = healer;
             }
         }
 
         public override Unit ToUnit<T>()
         {
-            return new Healer(this);
+            return healer;
+        }
+
+        public override GameObject GetUnitPrefab<T>(T unit)
+        {
+            if (unit is Healer Healer)
+            {
+                return base.GetUnitPrefab(Healer);
+            }
+
+            return null;
         }
     }
 }

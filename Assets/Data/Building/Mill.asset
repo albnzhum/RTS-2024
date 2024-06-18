@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e4af3249a5748eaa46c02d8060ab59c, type: 3}
   m_Name: Mill
   m_EditorClassIdentifier: 
-  name: "\u041C\u0435\u043B\u044C\u043D\u0438\u0446\u0430"
-  prefab: {fileID: 3931184038110116919, guid: 5acbb84af993e2b4f9fd2a8aecdd13e3, type: 3}
-  buildingType: 5
-  strength: 15
-  resourceCosts:
-  - resourceType: 0
-    amount: 10
-  resourcesToProduce:
-  - {fileID: 11400000, guid: c19a68a170a1d114a8486e414d7d009d, type: 2}
+  produceBuilding:
+    Name: "\u041C\u0435\u043B\u044C\u043D\u0438\u0446\u0430"
+    Prefab: Mill
+    BuildingType: 5
+    Strength: 100
+    ResourceCosts:
+    - resourceType: 0
+      amount: 20
+    ResourceToProduce: 03000000

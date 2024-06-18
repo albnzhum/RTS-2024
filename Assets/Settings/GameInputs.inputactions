@@ -160,6 +160,74 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Selection",
+            "id": "8b144f93-6d53-4889-9e10-67645d608bf1",
+            "actions": [
+                {
+                    "name": "Selection",
+                    "type": "PassThrough",
+                    "id": "45f3b020-da82-45f0-89ff-e109e067e61b",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SelectionBoxMouseDown",
+                    "type": "Button",
+                    "id": "68859bff-75f9-4545-95ea-3b7196f4de20",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SelectionBoxMouseUp",
+                    "type": "Button",
+                    "id": "8a8df128-ee7e-452c-944c-6c79adf7af20",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "bb9f61b9-0a0f-4714-99f6-37146c153af0",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Selection",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a026b9d7-7170-4bc1-a1c5-05c3206e4ee4",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectionBoxMouseDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "156dd4d2-8b7e-4b86-9444-474f25fc2bf8",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectionBoxMouseUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

@@ -14,13 +14,13 @@ public class LevelDifficultySO : ScriptableObject
 {
     [SerializeField] private Difficulty difficulty;
     [SerializeField] private float enemiesSpawnTime;
-    [SerializeField] private List<UnitTypeSO> enemiesUnitToSpawn;
+    [SerializeField] private List<UnitType> enemiesUnitToSpawn;
     [SerializeField] private int startArmyLimit;
     [SerializeField] private int armyIncreaseValue;
 
     public Difficulty Difficulty => difficulty;
     public float EnemiesSpawnTime => enemiesSpawnTime;
-    public List<UnitTypeSO> EnemiesUnitToSpawn => enemiesUnitToSpawn;
+    public List<UnitType> EnemiesUnitToSpawn => enemiesUnitToSpawn;
     public int StartArmyLimit => startArmyLimit;
     public int ArmyIncreaseValue => armyIncreaseValue;
 }

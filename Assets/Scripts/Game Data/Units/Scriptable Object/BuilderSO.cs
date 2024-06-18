@@ -5,29 +5,31 @@ namespace RTS.Units
     [CreateAssetMenu(menuName = "RTS/Units/Builder", fileName = "New Builder")]
     public class BuilderSO : UnitSO
     {
-        [SerializeField] private float resourceGatheringSpeed = default;
-        [SerializeField] private float repairSpeed = default;
-        [SerializeField] private int repairEfficiency = default;
+        [SerializeField] private Builder builder;
 
-        public float ResourceGatheringSpeed => resourceGatheringSpeed;
-        public float RepairSpeed => repairSpeed;
-        public int RepairEfficiency => repairEfficiency;
+        public Builder Builder => builder;
 
         public override void Set<T>(T unit)
         {
-            base.Set(unit);
-
             if (unit is Builder builder)
             {
-                resourceGatheringSpeed = builder.ResourceGatheringSpeed;
-                repairSpeed = builder.RepairSpeed;
-                repairEfficiency = builder.RepairEfficiency;
+                this.builder = builder;
             }
         }
 
         public override Unit ToUnit<T>()
         {
-            return new Builder(this);
+            return builder;
+        }
+
+        public override GameObject GetUnitPrefab<T>(T unit)
+        {
+            if (unit is Builder builder)
+            {
+                return base.GetUnitPrefab(builder);
+            }
+
+            return null;
         }
     }
 }

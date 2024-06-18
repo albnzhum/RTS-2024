@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6c6cd77889140cda88737b278395d68, type: 3}
   m_Name: Storage
   m_EditorClassIdentifier: 
-  name: "\u0421\u043A\u043B\u0430\u0434"
-  prefab: {fileID: 3934035896433079927, guid: 2712e8446c71581439f99e159579d13b, type: 3}
-  buildingType: 7
-  strength: 5
-  resourceCosts:
-  - resourceType: 0
-    amount: 15
-  valueToIncreaseResource: 2
+  storage:
+    Name: "\u0421\u043A\u043B\u0430\u0434"
+    Prefab: Storage
+    BuildingType: 7
+    Strength: 100
+    ResourceCosts:
+    - resourceType: 0
+      amount: 20
+    ValueToIncreaseResource: 5

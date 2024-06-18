@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e4af3249a5748eaa46c02d8060ab59c, type: 3}
   m_Name: Foundry
   m_EditorClassIdentifier: 
-  name: "\u041F\u043B\u0430\u0432\u0438\u043B\u044C\u043D\u044F"
-  prefab: {fileID: 0}
-  buildingType: 9
-  strength: 10
-  resourceCosts:
-  - resourceType: 1
-    amount: 10
-  - resourceType: 0
-    amount: 5
-  resourcesToProduce:
-  - {fileID: 11400000, guid: 47e53366dcf3f91498c4a8796e0ddf17, type: 2}
+  produceBuilding:
+    Name: "\u041F\u043B\u0430\u0432\u0438\u043B\u044C\u043D\u044F"
+    Prefab: Foundry
+    BuildingType: 9
+    Strength: 100
+    ResourceCosts:
+    - resourceType: 0
+      amount: 10
+    - resourceType: 5
+      amount: 15
+    ResourceToProduce: 01000000

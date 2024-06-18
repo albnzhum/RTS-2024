@@ -1,24 +1,35 @@
-﻿using System.Collections.Generic;
-using RTS.Resources;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace RTS.Buildings
 {
     [CreateAssetMenu(menuName = "RTS/Building/Produce Building", fileName = "New Produce Building")]
     public class ProduceBuildingSO : BuildingSO
     {
-        [SerializeField] private List<ResourceTypeSO> resourcesToProduce;
+        [SerializeField] private ProduceBuilding produceBuilding;
 
-        public List<ResourceTypeSO> ResourceToProduce => resourcesToProduce;
+        public ProduceBuilding ProduceBuilding => produceBuilding;
 
         public override void Set<T>(T building)
         {
-            base.Set(building);
-
-            if (building is ProduceBuildingSO produce)
+            if (building is ProduceBuilding produce && building.BuildingType.ToString() == name)
             {
-                resourcesToProduce = produce.resourcesToProduce;
+                produceBuilding = produce;
             }
+        }
+        
+        public override Building ToBuilding<T>()
+        {
+            return produceBuilding;
+        }
+
+        public override GameObject GetBuildingPrefab<T>(T building)
+        {
+            if (building is ProduceBuilding buildingToSet)
+            {
+                return base.GetBuildingPrefab(buildingToSet);
+            }
+
+            return null;
         }
     }
 }

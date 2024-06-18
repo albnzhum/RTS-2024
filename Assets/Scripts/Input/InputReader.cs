@@ -3,10 +3,13 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 [CreateAssetMenu(menuName = "RTS/Input Reader", fileName = "New Input Reader")]
-public class InputReader : ScriptableObject, GameInputs.IGameplayActions, GameInputs.IUIActions
+public class InputReader : ScriptableObject, GameInputs.IGameplayActions, GameInputs.IUIActions, GameInputs.ISelectionActions
 {
     public event UnityAction<Vector2> CameraZoomEvent = delegate { };
     public event UnityAction<Vector2> CameraMovementEvent = delegate { };
+    public event UnityAction<Vector2> SelectionBoxEvent = delegate {  };
+    public event UnityAction SelectionBoxMouseDown = delegate { };
+    public event UnityAction SelectionBoxMouseUp = delegate { };
     public event UnityAction OnOpenPauseEvent = delegate { };
     public event UnityAction OnClosePauseEvent = delegate { };
 
@@ -23,6 +26,7 @@ public class InputReader : ScriptableObject, GameInputs.IGameplayActions, GameIn
 
             _gameInputs.Gameplay.SetCallbacks(this);
             _gameInputs.UI.SetCallbacks(this);
+            _gameInputs.Selection.SetCallbacks(this);
         }
     }
 
@@ -63,6 +67,27 @@ public class InputReader : ScriptableObject, GameInputs.IGameplayActions, GameIn
         if (context.phase == InputActionPhase.Performed)
         {
             OnOpenPauseEvent.Invoke();
+        }
+    }
+
+    public void OnSelection(InputAction.CallbackContext context)
+    {
+        SelectionBoxEvent.Invoke(context.ReadValue<Vector2>());
+    }
+
+    public void OnSelectionBoxMouseDown(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            SelectionBoxMouseDown.Invoke();
+        }
+    }
+
+    public void OnSelectionBoxMouseUp(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Canceled)
+        {
+            SelectionBoxMouseUp.Invoke();
         }
     }
 

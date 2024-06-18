@@ -12,20 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da495ad647418844d98f3791106855a7, type: 3}
   m_Name: Heavy Warrior
   m_EditorClassIdentifier: 
-  name: "\u0422\u044F\u0436\u0435\u043B\u044B\u0439 \u0432\u043E\u0438\u043D"
-  prefab: {fileID: 408817030802499377, guid: e0a82d04897f7b74a83b569473647a10, type: 3}
-  unitType: 3
-  movementSpeed: 5
-  health: 20
-  resourceCost:
-  - resourceType: 0
-    amount: 10
-  - resourceType: 1
-    amount: 15
-  - resourceType: 2
-    amount: 20
-  detectionRange: 0
-  minAttackDistance: 0
-  maxAttackDistance: 0
-  attackDelay: 0
-  damage: 0
+  attackUnit:
+    Name: "\u0422\u044F\u0436\u0435\u043B\u044B\u0439 \u0432\u043E\u0438\u043D"
+    PrefabName: Heavy Warrior
+    UnitType: 3
+    MovementSpeed: 2
+    Health: 25
+    ResourceCost:
+    - resourceType: 1
+      amount: 5
+    DetectionRange: 3
+    MinAttackDistance: 1
+    MaxAttackDistance: 3
+    AttackDelay: 0.6
+    Damage: 7

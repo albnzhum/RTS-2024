@@ -1,26 +1,30 @@
-using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using RTS.Resources;
-using UnityEngine;
 
 namespace RTS.Buildings
 {
-    [Serializable]
+    public enum BuildingType
+    {
+        Barracks,
+        House,
+        Manufactory,
+        Temple,
+        Garden,
+        Mill,
+        GuardTower,
+        Storage,
+        CityHall,
+        Foundry
+    }
+    
+    [DataContract]
     public class Building
     {
-        public string Name = default;
-        public GameObject Prefab = default;
-        public BuildingType BuildingType = default;
-        public int Strength = default;
-        public List<ResourceCost> ResourceCosts = default;
-
-        public Building(BuildingSO building)
-        {
-            Name = building.Name;
-            Prefab = building.Prefab;
-            BuildingType = building.BuildingType;
-            Strength = building.Strength;
-            ResourceCosts = building.ResourceCosts;
-        }
+        [DataMember] public string Name = default;
+        [DataMember] public string Prefab = default;
+        [DataMember] public BuildingType BuildingType = default;
+        [DataMember] public int Strength = default;
+        [DataMember] public List<ResourceCost> ResourceCosts = default;
     }
 }

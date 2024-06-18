@@ -2,6 +2,9 @@ using UnityEngine;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
+/// <summary>
+/// Класс для управления движением камеры
+/// </summary>
 public class CameraMovement : MonoBehaviour
 {
     [SerializeField] private InputReader inputReader;

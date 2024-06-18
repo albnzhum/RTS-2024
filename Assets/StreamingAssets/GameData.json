@@ -1,1 +1,337 @@
-{}
+{
+  "Buildings": [
+    {
+      "__type": "TrainBuilding:#RTS.Buildings",
+      "BuildingType": 0,
+      "Name": "Бараки",
+      "Prefab": "Barracks",
+      "ResourceCosts": [
+        {
+          "amount": 15,
+          "resourceType": 5
+        },
+        {
+          "amount": 10,
+          "resourceType": 0
+        }
+      ],
+      "Strength": 100,
+      "UnitsToTrain": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "__type": "TrainBuilding:#RTS.Buildings",
+      "BuildingType": 3,
+      "Name": "Храм",
+      "Prefab": "Temple",
+      "ResourceCosts": [
+        {
+          "amount": 15,
+          "resourceType": 0
+        }
+      ],
+      "Strength": 100,
+      "UnitsToTrain": [
+        5
+      ]
+    },
+    {
+      "__type": "TownCenter:#RTS.Buildings",
+      "BuildingType": 8,
+      "Name": "Ратуша",
+      "Prefab": "Town Center",
+      "ResourceCosts": [
+        {
+          "amount": 15,
+          "resourceType": 0
+        },
+        {
+          "amount": 20,
+          "resourceType": 5
+        }
+      ],
+      "Strength": 100,
+      "Radius": 20
+    },
+    {
+      "__type": "ProduceBuilding:#RTS.Buildings",
+      "BuildingType": 9,
+      "Name": "Плавильня",
+      "Prefab": "Foundry",
+      "ResourceCosts": [
+        {
+          "amount": 10,
+          "resourceType": 0
+        },
+        {
+          "amount": 15,
+          "resourceType": 5
+        }
+      ],
+      "Strength": 100,
+      "ResourceToProduce": [
+        1
+      ]
+    },
+    {
+      "__type": "ProduceBuilding:#RTS.Buildings",
+      "BuildingType": 4,
+      "Name": "Грядки",
+      "Prefab": "Field",
+      "ResourceCosts": [
+        {
+          "amount": 10,
+          "resourceType": 0
+        }
+      ],
+      "Strength": 100,
+      "ResourceToProduce": [
+        2
+      ]
+    },
+    {
+      "__type": "GuardTower:#RTS.Buildings",
+      "BuildingType": 6,
+      "Name": "Сторожевая башня",
+      "Prefab": "Guard Tower",
+      "ResourceCosts": [
+        {
+          "amount": 10,
+          "resourceType": 0
+        },
+        {
+          "amount": 15,
+          "resourceType": 5
+        }
+      ],
+      "Strength": 100,
+      "ArcherCapacity": 5,
+      "AttackDelay": 2,
+      "BuildingRadius": 3,
+      "Damage": 5,
+      "EnemyDetectionRadius": 5,
+      "MaxAttackDistance": 8,
+      "MinAttackDistance": 0
+    },
+    {
+      "__type": "TrainBuilding:#RTS.Buildings",
+      "BuildingType": 1,
+      "Name": "Жилой дом",
+      "Prefab": "House",
+      "ResourceCosts": [
+        {
+          "amount": 15,
+          "resourceType": 0
+        }
+      ],
+      "Strength": 100,
+      "UnitsToTrain": [
+        4
+      ]
+    },
+    {
+      "__type": "TrainBuilding:#RTS.Buildings",
+      "BuildingType": 2,
+      "Name": "Мастерская",
+      "Prefab": "Manufactory",
+      "ResourceCosts": [
+        {
+          "amount": 20,
+          "resourceType": 0
+        }
+      ],
+      "Strength": 100,
+      "UnitsToTrain": [
+        2,
+        6
+      ]
+    },
+    {
+      "__type": "ProduceBuilding:#RTS.Buildings",
+      "BuildingType": 5,
+      "Name": "Мельница",
+      "Prefab": "Mill",
+      "ResourceCosts": [
+        {
+          "amount": 20,
+          "resourceType": 0
+        }
+      ],
+      "Strength": 100,
+      "ResourceToProduce": [
+        3
+      ]
+    },
+    {
+      "__type": "Storage:#RTS.Buildings",
+      "BuildingType": 7,
+      "Name": "Склад",
+      "Prefab": "Storage",
+      "ResourceCosts": [
+        {
+          "amount": 20,
+          "resourceType": 0
+        }
+      ],
+      "Strength": 100,
+      "ValueToIncreaseResource": 5
+    }
+  ],
+  "Units": [
+    {
+      "__type": "AttackUnit:#RTS.Units",
+      "DetectionRange": 5,
+      "Health": 10,
+      "MovementSpeed": 3,
+      "Name": "Лучник",
+      "PrefabName": "Archer",
+      "ResourceCost": [
+        {
+          "amount": 2,
+          "resourceType": 0
+        },
+        {
+          "amount": 5,
+          "resourceType": 5
+        }
+      ],
+      "UnitType": 0,
+      "AttackDelay": 0.4,
+      "Damage": 2,
+      "MaxAttackDistance": 4,
+      "MinAttackDistance": 2
+    },
+    {
+      "__type": "Builder:#RTS.Units",
+      "DetectionRange": 2,
+      "Health": 15,
+      "MovementSpeed": 5,
+      "Name": "Строитель",
+      "PrefabName": "Builder",
+      "ResourceCost": [
+        {
+          "amount": 3,
+          "resourceType": 0
+        },
+        {
+          "amount": 2,
+          "resourceType": 2
+        }
+      ],
+      "UnitType": 4,
+      "RepairEfficiency": 4,
+      "RepairSpeed": 3,
+      "ResourceGatheringSpeed": 1
+    },
+    {
+      "__type": "AttackUnit:#RTS.Units",
+      "DetectionRange": 3,
+      "Health": 20,
+      "MovementSpeed": 2,
+      "Name": "Катапульта",
+      "PrefabName": "Catapult",
+      "ResourceCost": [
+        {
+          "amount": 5,
+          "resourceType": 5
+        }
+      ],
+      "UnitType": 2,
+      "AttackDelay": 0.8,
+      "Damage": 5,
+      "MaxAttackDistance": 5,
+      "MinAttackDistance": 2
+    },
+    {
+      "__type": "Healer:#RTS.Units",
+      "DetectionRange": 4,
+      "Health": 18,
+      "MovementSpeed": 5,
+      "Name": "Лекарь",
+      "PrefabName": "Healer",
+      "ResourceCost": [
+        {
+          "amount": 20,
+          "resourceType": 1
+        },
+        {
+          "amount": 10,
+          "resourceType": 0
+        }
+      ],
+      "UnitType": 5,
+      "Heal": 3,
+      "HealDelay": 0.6,
+      "MaxHealDistance": 5,
+      "MinHealDistance": 2
+    },
+    {
+      "__type": "AttackUnit:#RTS.Units",
+      "DetectionRange": 3,
+      "Health": 25,
+      "MovementSpeed": 2,
+      "Name": "Тяжелый воин",
+      "PrefabName": "Heavy Warrior",
+      "ResourceCost": [
+        {
+          "amount": 5,
+          "resourceType": 1
+        }
+      ],
+      "UnitType": 3,
+      "AttackDelay": 0.6,
+      "Damage": 7,
+      "MaxAttackDistance": 3,
+      "MinAttackDistance": 1
+    },
+    {
+      "__type": "AttackUnit:#RTS.Units",
+      "DetectionRange": 0,
+      "Health": 15,
+      "MovementSpeed": 3,
+      "Name": "Копейщик",
+      "PrefabName": "Lancer",
+      "ResourceCost": [
+        {
+          "amount": 10,
+          "resourceType": 1
+        },
+        {
+          "amount": 15,
+          "resourceType": 0
+        }
+      ],
+      "UnitType": 1,
+      "AttackDelay": 0,
+      "Damage": 0,
+      "MaxAttackDistance": 0,
+      "MinAttackDistance": 0
+    },
+    {
+      "__type": "Turret:#RTS.Units",
+      "DetectionRange": 4,
+      "Health": 20,
+      "MovementSpeed": 5,
+      "Name": "Осадная башня",
+      "PrefabName": "Turret",
+      "ResourceCost": [
+        {
+          "amount": 10,
+          "resourceType": 0
+        },
+        {
+          "amount": 15,
+          "resourceType": 1
+        }
+      ],
+      "UnitType": 6,
+      "Capacity": 10,
+      "Damage": 10,
+      "MaxAttackDistance": 8,
+      "MinAttackDistance": 2
+    }
+  ]
+}

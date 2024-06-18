@@ -11,14 +11,6 @@ public class GameDataSO : ScriptableObject
 
     public List<BuildingSO> Buildings => buildings;
     public List<UnitSO> Units => units;
-    
-    public void SetBuildings(Building buildingToSet)
-    {
-        foreach (var building in buildings)
-        {
-            building.Set(buildingToSet);
-        }
-    }
 
     public void SetUnits(Unit unitToSet)
     {
