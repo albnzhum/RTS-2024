@@ -12,11 +12,7 @@ namespace RTS.Units
             unit = unitToSet;
         }
 
-        public abstract Unit ToUnit<T>() where T : Unit;
+        public abstract Unit ToUnit();
         
-        public virtual GameObject GetUnitPrefab<T>(T unit) where T : Unit
-        {
-            return UnityEngine.Resources.Load<GameObject>(unit.PrefabName);
-        }
     }
 }

@@ -16,19 +16,9 @@ namespace RTS.Units
             }
         }
 
-        public override Unit ToUnit<T>()
+        public override Unit ToUnit()
         {
             return turret;
-        }
-
-        public override GameObject GetUnitPrefab<T>(T unit)
-        {
-            if (unit is Turret Turret)
-            {
-                return base.GetUnitPrefab(Turret);
-            }
-
-            return null;
         }
     }
 }

@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
+using UnityEngine.AI;
 
 namespace RTS.Units
 {
+    [RequireComponent(typeof(NavMeshAgent))]
     public class UnitEntity : MonoBehaviour
     {
         [SerializeField] private UnitSO unit;

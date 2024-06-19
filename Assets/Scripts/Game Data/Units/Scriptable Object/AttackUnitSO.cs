@@ -16,19 +16,9 @@ namespace RTS.Units
             }
         }
 
-        public override Unit ToUnit<T>()
+        public override Unit ToUnit()
         {
             return attackUnit;
-        }
-
-        public override GameObject GetUnitPrefab<T>(T unit)
-        {
-            if (unit is AttackUnit attack)
-            {
-                return base.GetUnitPrefab(attack);
-            }
-
-            return null;
         }
     }
 }

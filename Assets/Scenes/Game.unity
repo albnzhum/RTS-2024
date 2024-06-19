@@ -467,6 +467,7 @@ GameObject:
   - component: {fileID: 89621121}
   - component: {fileID: 89621120}
   - component: {fileID: 89621119}
+  - component: {fileID: 89621122}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -548,6 +549,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &89621122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89621118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: b1c4feffc8fd9cf4b8e39873a2d768fe, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &109801976
 GameObject:
   m_ObjectHideFlags: 0
@@ -1503,6 +1535,7 @@ GameObject:
   - component: {fileID: 299362487}
   - component: {fileID: 299362486}
   - component: {fileID: 299362485}
+  - component: {fileID: 299362490}
   m_Layer: 5
   m_Name: Selection
   m_TagString: Untagged
@@ -1607,6 +1640,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &299362490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299362484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55f5807b9fbb4c108b25ebd6aa1122d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selection: {fileID: 299362485}
 --- !u!1 &321817048
 GameObject:
   m_ObjectHideFlags: 0
@@ -1888,6 +1934,10 @@ PrefabInstance:
     - target: {fileID: 5381656724978838495, guid: a02f5a82d08043a449bb416979e520e2, type: 3}
       propertyPath: m_Name
       value: Catapult
+      objectReference: {fileID: 0}
+    - target: {fileID: 5381656724978838495, guid: a02f5a82d08043a449bb416979e520e2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5724635999710050686, guid: a02f5a82d08043a449bb416979e520e2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3166,6 +3216,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turret
       objectReference: {fileID: 0}
+    - target: {fileID: 5056541987184030655, guid: 9b52a29bbc523274ca667c87ac75f13f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7136307974824753408, guid: 9b52a29bbc523274ca667c87ac75f13f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 66.21392
@@ -3656,6 +3710,10 @@ PrefabInstance:
     - target: {fileID: 5209728340417000431, guid: e2d361d46eb2a474da958c76590175b6, type: 3}
       propertyPath: m_Name
       value: Builder
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209728340417000431, guid: e2d361d46eb2a474da958c76590175b6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5618342900093280139, guid: e2d361d46eb2a474da958c76590175b6, type: 3}
       propertyPath: m_IsActive
@@ -4694,6 +4752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ce0f5ca7cd44528947bf43f961ae96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offset: 10
 --- !u!1 &1711587366
 GameObject:
   m_ObjectHideFlags: 0
@@ -4725,6 +4784,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameSettings: {fileID: 11400000, guid: fc0b0db0c7e3c9646a730aa1a86f64d6, type: 2}
   _terrain: {fileID: 89621120}
+  _surface: {fileID: 89621122}
 --- !u!4 &1711587368
 Transform:
   m_ObjectHideFlags: 0
@@ -5221,6 +5281,10 @@ PrefabInstance:
     - target: {fileID: 7255528331568808303, guid: 552536f76a56b3c4ea60118cd07d7f86, type: 3}
       propertyPath: m_Name
       value: Healer
+      objectReference: {fileID: 0}
+    - target: {fileID: 7255528331568808303, guid: 552536f76a56b3c4ea60118cd07d7f86, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

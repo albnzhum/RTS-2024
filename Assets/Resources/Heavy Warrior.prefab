@@ -96,6 +96,8 @@ GameObject:
   - component: {fileID: 5325431170593008452}
   - component: {fileID: 2214803314593051169}
   - component: {fileID: 814308533371318906}
+  - component: {fileID: 6361503384034277388}
+  - component: {fileID: -1573434669280139830}
   m_Layer: 0
   m_Name: Heavy Warrior
   m_TagString: Unit
@@ -185,6 +187,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 11400000, guid: 9b4c550df4ebec54d8de1d3940e5b76d, type: 2}
   icon: {fileID: 21300000, guid: 8155e2639cd449540ac862478791c54e, type: 3}
+--- !u!195 &6361503384034277388
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408817030802499377}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.61
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 5.42
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &-1573434669280139830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408817030802499377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c130d24e92d1174484fa4783681918d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2633054048416968768
 GameObject:
   m_ObjectHideFlags: 0

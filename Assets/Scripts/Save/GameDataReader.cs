@@ -20,7 +20,7 @@ namespace RTS.Save
 
             foreach (var unitSO in gameDataSO.Units)
             {
-                var unit = unitSO.ToUnit<Unit>();
+                var unit = unitSO.ToUnit();
                 gameData.Units.Add(unit);
             }
 

@@ -1,7 +1,7 @@
-using System;
 using System.Collections.Generic;
 using RTS.UI;
 using UnityEngine;
+using Random = System.Random;
 
 public class MapGenerator : MonoBehaviour
 {
@@ -20,7 +20,7 @@ public class MapGenerator : MonoBehaviour
 
     private Vector3[] corners = new Vector3[4];
 
-    private void Start()
+    private void OnEnable()
     {
         _terrainSize = gameSettings.MapSize * 2;
 
@@ -125,6 +125,7 @@ public class MapGenerator : MonoBehaviour
                     Vector3 position = new Vector3(x, 0, y);
                     GameObject resourcePrefab = (sample > 0.85f) ? rockPrefab : treePrefab;
                     Instantiate(resourcePrefab, position, Quaternion.identity, parent);
+                    resourcePrefab.isStatic = true;
                 }
             }
         }
@@ -148,7 +149,7 @@ public class MapGenerator : MonoBehaviour
             basePositions = DivideTerrainByNineParts();
         }
 
-        System.Random rand = new System.Random();
+        Random rand = new Random();
 
         for (int i = 0; i < playersCount; i++)
         {

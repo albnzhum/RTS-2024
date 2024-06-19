@@ -82,7 +82,7 @@ namespace RTS.UI
             int playerColorIndex = rnd.Next(Colors.Count);
             int opponentColorIndex = (playerColorIndex + 1) % Colors.Count;
 
-            Player mainPlayer = new("Игрок", Colors[playerColorIndex]);
+            Player mainPlayer = new("Игрок", Colors[playerColorIndex], true);
             Player opponent = new("Противник 1", Colors[opponentColorIndex]);
 
             _gameSettings.Add(mainPlayer);

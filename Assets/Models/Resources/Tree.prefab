@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8155590289634007560}
   - component: {fileID: 7459820698009092094}
   - component: {fileID: -5799163516118474628}
+  - component: {fileID: -8257696718789522280}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Resource
@@ -68,6 +69,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceIcon: {fileID: 477626978677022679, guid: bda24672db0513c4a923dab7b5e32810, type: 3}
+--- !u!208 &-8257696718789522280
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382659402361695440}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.775, y: 1.58, z: 0.765}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 1.67, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &3635314921877729025
 GameObject:
   m_ObjectHideFlags: 0

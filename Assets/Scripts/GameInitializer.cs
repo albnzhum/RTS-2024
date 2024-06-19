@@ -1,4 +1,5 @@
 using RTS.UI;
+using Unity.AI.Navigation;
 using UnityEngine;
 
 namespace RTS.Resources
@@ -7,9 +8,12 @@ namespace RTS.Resources
     {
         [SerializeField] private GameSettingsSO _gameSettings;
 
-        [Header("Game")] [SerializeField] private Terrain _terrain;
+        [Header("Game")] 
+        [SerializeField] private Terrain _terrain;
 
-        private void OnEnable()
+        [SerializeField] private NavMeshSurface _surface;
+
+        private void Start()
         {
             SetMapArea();
         }
@@ -22,6 +26,8 @@ namespace RTS.Resources
         private void SetMapArea()
         {
             _terrain.terrainData.size = new Vector3(_gameSettings.MapSize * 2, 10, _gameSettings.MapSize * 2);
+            
+            _surface.BuildNavMesh();
         }
     }
 }

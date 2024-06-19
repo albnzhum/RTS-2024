@@ -10,27 +10,27 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] private InputReader inputReader;
 
     [Header("Horizontal Translation")] 
-    [SerializeField] private float maxSpeed = 15f;
+    [SerializeField] private float maxSpeed = 15f; // макс скорость горизонтального перемещения
 
-    [SerializeField] private float acceleration = 10f;
-    [SerializeField] private float damping = 15f;
+    [SerializeField] private float acceleration = 10f; // ускорение камеры при перемещении
+    [SerializeField] private float damping = 15f; // затухание камеры при остановке
 
     [Header("Vertical Translation")] 
-    [SerializeField] private float stepSize = 2f;
+    [SerializeField] private float stepSize = 2f; // шаг увеличения/уменьшения высоты при зуме
 
-    [SerializeField] private float zoomDampening = 7.5f;
-    [SerializeField] private float minHeight = 5f;
-    [SerializeField] private float maxHeight = 50f;
-    [SerializeField] private float zoomSpeed = 2f;
+    [SerializeField] private float zoomDampening = 7.5f; // затухание камеры при зуме
+    [SerializeField] private float minHeight = 5f; // минимальная высота камеры
+    [SerializeField] private float maxHeight = 50f; // максимальная высота камеры
+    [SerializeField] private float zoomSpeed = 2f; // скорость зума
 
     private Transform _cameraTransform;
-    private float _speed;
-    private Vector3 _targetPosition;
-    private float _zoomHeight;
-    private Vector3 _horizontalVelocity;
-    private Vector3 _lastPosition;
-
-    private Vector3 _startDrag;
+    private float _speed; // текущая скорость камеры
+    private Vector3 _targetPosition; // целевая позиция
+    private float _zoomHeight; // текущая высота зума
+    private Vector3 _horizontalVelocity; // горизонтальная скорость
+    private Vector3 _lastPosition; // последняя позиция
+ 
+    private Vector3 _startDrag; // начальная позиция при начале перемещения
 
     private Vector3 _cameraMovementInput;
 
@@ -59,7 +59,6 @@ public class CameraMovement : MonoBehaviour
     {
         if (inputReader.IsGameplayInputEnabled)
         {
-            UpdateVelocity();
             UpdateBasePosition();
             UpdateCameraPosition();
         }

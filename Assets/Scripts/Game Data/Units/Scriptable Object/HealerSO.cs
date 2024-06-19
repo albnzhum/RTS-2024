@@ -17,19 +17,10 @@ namespace RTS.Units
             }
         }
 
-        public override Unit ToUnit<T>()
+        public override Unit ToUnit()
         {
             return healer;
         }
-
-        public override GameObject GetUnitPrefab<T>(T unit)
-        {
-            if (unit is Healer Healer)
-            {
-                return base.GetUnitPrefab(Healer);
-            }
-
-            return null;
-        }
+        
     }
 }

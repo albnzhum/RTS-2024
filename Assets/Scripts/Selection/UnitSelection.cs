@@ -1,4 +1,4 @@
-using System;
+using System.Collections.Generic;
 using RTS.Units;
 using UnityEngine;
 
@@ -6,6 +6,10 @@ public class UnitSelection : MonoBehaviour
 {
     [SerializeField] private Camera cam;
     [SerializeField] private RectTransform selectionBox;
+
+    private List<UnitEntity> units = new List<UnitEntity>();
+    public List<UnitEntity> Units => units;
+
     private Vector2 startPosition;
     private Vector2 endPosition;
 
@@ -20,12 +24,15 @@ public class UnitSelection : MonoBehaviour
         {
             startPosition = Input.mousePosition;
             selectionBox.gameObject.SetActive(true);
+            units.Clear();
         }
+        
         if (Input.GetMouseButton(0))
         {
             endPosition = Input.mousePosition;
             UpdateSelectionBox();
         }
+        
         if (Input.GetMouseButtonUp(0))
         {
             selectionBox.gameObject.SetActive(false);
@@ -52,6 +59,8 @@ public class UnitSelection : MonoBehaviour
             Vector3 screenPos = Camera.main.WorldToScreenPoint(selectable.transform.position);
             if (screenPos.x > min.x && screenPos.x < max.x && screenPos.y > min.y && screenPos.y < max.y)
             {
+                var unit = selectable.GetComponent<UnitEntity>();
+                units.Add(unit);
                 Debug.Log("Selected: " + selectable.name);
             }
         }

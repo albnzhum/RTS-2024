@@ -95,6 +95,8 @@ GameObject:
   - component: {fileID: 9033564630439784567}
   - component: {fileID: 357077816265064648}
   - component: {fileID: -1264485091041065190}
+  - component: {fileID: 673509219839059678}
+  - component: {fileID: 2417105286723761519}
   m_Layer: 0
   m_Name: Lancer
   m_TagString: Unit
@@ -184,6 +186,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 11400000, guid: 34315e3e6610a6447919ac23e3d2603c, type: 2}
   icon: {fileID: 21300000, guid: f1b29190b0ae2bf4693f783debe79c85, type: 3}
+--- !u!195 &673509219839059678
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073963556692576435}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &2417105286723761519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073963556692576435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c130d24e92d1174484fa4783681918d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5001765920848170615
 GameObject:
   m_ObjectHideFlags: 0
