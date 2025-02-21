@@ -13,6 +13,5 @@ namespace RTS.Units
         }
 
         public abstract Unit ToUnit();
-        
     }
 }

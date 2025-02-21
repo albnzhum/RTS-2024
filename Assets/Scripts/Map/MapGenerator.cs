@@ -160,7 +160,7 @@ public class MapGenerator : MonoBehaviour
             GameObject townHall = Instantiate(townHallPrefab, basePosition, Quaternion.identity);
             townHall.GetComponent<FactionSlot>().CurrentPlayer = gameSettings.Players[i].Player;
 
-            ClearAreaAroundBase(basePosition, 30);
+            ClearAreaAroundBase(basePosition, 15);
         }
     }
 
